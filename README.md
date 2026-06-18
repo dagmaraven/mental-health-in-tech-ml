@@ -13,13 +13,13 @@ https://www.kaggle.com/datasets/osmi/mental-health-in-tech-survey
 
 ## Project Structure & Workflow
 ### 1. Data Cleaning & Feature Engineering
-* Handled missing values using domain-informed assumptions (e.g., self_employed, work_interfere)
-* Standardized and simplified noisy categorical values in the Gender column into three classes: male, female, and other.
-* Removed invalid and extreme values from the Age column to ensure data quality.
+* Handled missing values using domain-informed assumptions (e.g., `self_employed`, `work_interfere`)
+* Standardized and simplified noisy categorical values in the `Gender` column into three classes: `male`, `female`, and `other`.
+* Removed invalid and extreme values from the `Age` column to ensure data quality.
 * Encoded categorical variables using:
-  * Ordinal encoding for structured variables with inherent order (e.g., work_interfere, leave, no_employees)
-  * One-hot encoding for nominal features using pd.get_dummies
-* Scaled numerical features using MinMaxScaler fitted only on the training set to prevent data leakage.
+  * Ordinal encoding for structured variables with inherent order (e.g., `work_interfere`, `leave`, `no_employees`)
+  * One-hot encoding for nominal features using `pd.get_dummies`
+* Scaled numerical features using `MinMaxScaler` fitted only on the training set to prevent data leakage.
 
 ### 2. Exploratory Data Analysis (EDA)
 * Analyzed relationships between key workplace and demographic factors and mental health treatment using grouped count plots.
@@ -35,6 +35,7 @@ Three models were trained and compared:
 * Logistic Regression (optimized features): Interpretable baseline model trained on the RFECV-selected feature subset.
 * Support Vector Machine (SVM, RBF kernel): Non-linear model used to capture complex relationships in the data.
 * Multilayer Perceptron (MLP): Neural network with two hidden layers (10, 5), using tanh activation and the adam optimizer to model non-linear patterns.
+
 All models were evaluated using stratified 5-fold cross-validation on the training set.
 
 ### 5. Evaluation and Performance Benchmarking
@@ -64,6 +65,6 @@ Final evaluation metrics collected on the holdout test set demonstrated the foll
 
 ## Tech Stack & Dependencies
 * **Core Language:** Python 3.x
-* **Exploratory Analytics & Wrangling:** `pandas`, `numpy`
+* **Exploratory Analytics:** `pandas`, `numpy`
 * **Visualization Suite:** `matplotlib`, `seaborn`
 * **Machine Learning Engine:** `scikit-learn`
